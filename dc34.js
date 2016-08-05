@@ -22,7 +22,7 @@ var map;
 var mapjson;
 
 //Bot log-in
-client.loginWithToken('MjEwMjk4ODgxNDE2NjI2MTc2.CoMv5A.B09WVkLm3QSZ2-zoiLS6qQhmQ2c', output);
+client.loginWithToken('yourbotstokengoeshere', output);
 
 function output (error, token) {
     if(error) {
