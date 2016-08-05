@@ -4,57 +4,12 @@
     <head>
         <meta charset="UTF-8">
         <script type="text/javascript" src="p5.min.js"></script>
+        <script type="text/javascript" src="../c34.js"></script>
     </head>
-    <body>
+    <body style="background-color: black">
+        <script type="text/javascript" src="main.js"></script>
         <script type="text/javascript">
-            var grid = 100;
-            var label;
-            var charPos;
-            var hadean;
 
-
-            function setup () {
-                createCanvas(801,601);
-
-
-            }
-
-            setInterval(getData, 2000);
-
-            function draw () {
-                background(51);
-
-
-                for(var i = 0; i < height/grid; i++){
-                    for(var j = 0; j < width/grid; j++){
-                        fill(255);
-                        rect(j*grid, i*grid, grid, grid);
-                        fill(0);
-                        textSize(32);
-                        label = i + " " + j;
-                        text(label, j*grid+10, i*grid+42);
-                    }
-                }
-
-                if(hadean === undefined){
-
-                }else{
-                    fill(200,0,0);
-                    ellipse(50+hadean.x*grid, 50+hadean.y*grid, 20, 20);
-                }
-
-
-            }
-
-            function getData(){
-                loadJSON('map.json', setData);
-            }
-
-            function setData(ddata){
-                charPos = ddata;
-                hadean = charPos.Hadean;
-                console.log(hadean);
-            }
 
         </script>
     </body>
