@@ -1,23 +1,17 @@
 var grid = 40;
 var label;
-var charPos;
-var hadean;
-var buky;
 var bg;
 var timer = 0;
+var playerNamesArray;
+var playerArray = [];
 
 function preload(){
     bg = loadImage("level1.jpg");
 }
 
-
 function setup () {
     createCanvas(1201,801);
-
-
-
 }
-
 
 function draw () {
 
@@ -27,6 +21,7 @@ function draw () {
 
         getData();
         image(bg, -25, -125)
+        console.log(playerArray);
 
         for(var i = 0; i < height/grid; i++){
             for(var j = 0; j < width/grid; j++){
@@ -41,23 +36,20 @@ function draw () {
             }
         }
 
-        if(hadean === undefined || buky === undefined){
+        if(playerArray[playerArray.length-1] === undefined){
 
         }else{
-            textSize(11);
-            textAlign(CENTER);
-            fill(200,0,0);
-            stroke('rgba(255, 255, 255, 0.9)')
-            ellipse(20+hadean.x*grid, 20+hadean.y*grid, 10, 10);
-            text('Hadean', 20+hadean.x*grid, 35+hadean.y*grid)
-            fill(0,0,200);
-            ellipse(20+buky.x*grid, 20+buky.y*grid, 10, 10);
-            text('Buky', 20+buky.x*grid, 35+buky.y*grid)
+
+            for(var i = 0; i < playerArray.length; i++){
+                textSize(11);
+                textAlign(CENTER);
+                fill(playerArray[i].color);
+                stroke('rgba(255, 255, 255, 0.6)');
+                ellipse(20+playerArray[i].x*grid, 20+playerArray[i].y*grid, 10, 10);
+                text(playerArray[i].charName, 20+playerArray[i].x*grid, 35+playerArray[i].y*grid);
+            }
         }
-
     }
-
-
 }
 
 function getData(){
@@ -65,8 +57,8 @@ function getData(){
 }
 
 function setData(ddata){
-    charPos = ddata;
-    hadean = charPos.Hadean;
-    buky = charPos.Buky;
-    console.log(hadean);
+    playerNamesArray = ddata.names;
+    for(var i = 0; i < playerNamesArray.length; i++){
+        playerArray[i] = ddata[playerNamesArray[i]];
+    }
 }
