@@ -3,12 +3,12 @@ var Discord = require('discord.js');
 var fs = require("fs");
 var http = require('http');
 var path = require('path');
+var express = require('express');
 
 //Creating new Discord client object
 var client = new Discord.Client();
 
 //Web server with express
-var express = require('express');
 var app = express();
 var server = http.createServer(app);
 
